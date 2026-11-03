@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#181a17"/>
+      <stop offset="0.55" stop-color="#0e0f10"/>
+      <stop offset="1" stop-color="#15170f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="44%" r="50%">
+      <stop offset="0" stop-color="#c8ff3d" stop-opacity=".13"/>
+      <stop offset="1" stop-color="#c8ff3d" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#efeee9" stroke-opacity=".035"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="1000" fill="url(#g)"/>
+  <rect width="800" height="1000" fill="url(#grid)"/>
+  <rect width="800" height="1000" fill="url(#glow)"/>
+  <g transform="translate(400 470)" fill="none" stroke="#c8ff3d" stroke-width="2" stroke-opacity=".62">
+    <path d="M0-92 80-46v92L0 92l-80-46v-92L0-92Z"/>
+    <path d="m-80-46 80 46 80-46M0 0v92"/>
+  </g>
+  <text x="400" y="650" fill="#8e8f8a" font-family="monospace" font-size="13" letter-spacing="5" text-anchor="middle">3D MODEL</text>
+  <text x="400" y="678" fill="#5c5d58" font-family="monospace" font-size="10" letter-spacing="3" text-anchor="middle">CAPTURE A COVER IN VIEWER</text>
+</svg>

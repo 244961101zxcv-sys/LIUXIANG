@@ -1,0 +1,15 @@
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local test output (not part of the website)
+_downloads/
+_unzip/
+_test-*/
+_*.png
+_*.log
+_*.txt
+
+# Python caches
+__pycache__/
+*.pyc

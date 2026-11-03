@@ -1,0 +1,421 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#08090a">
+  <title>形体档案 FORM / 10 — 3D 角色作品集</title>
+  <meta name="description" content="3D 角色、生物与硬表面道具作品档案。十个展示位，支持 GLB 实时 3D 预览，适配电脑与手机操作。">
+  <meta property="og:title" content="形体档案 FORM / 10">
+  <meta property="og:description" content="3D 角色、生物与硬表面道具作品档案。十个展示位，支持实时 3D 预览。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/og-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="assets/og-cover.jpg">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/viewer.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./vendor/three/three.module.js",
+        "three/addons/": "./vendor/three/addons/"
+      }
+    }
+  </script>
+  <script src="vendor/jszip/jszip.min.js" defer></script>
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#index">跳到作品索引</a>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header" id="site-header">
+    <a class="brand" href="#top" aria-label="FORM / 10 首页">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">FORM<em>/</em>10</span>
+    </a>
+    <p class="header-note"><span class="status-dot"></span>3D ART ARCHIVE <span class="header-year">2026</span></p>
+    <nav class="site-nav" aria-label="主导航">
+      <a href="#index">作品索引</a>
+      <a href="#about">关于</a>
+      <button class="nav-curator" type="button" data-open-curator>策展台 <span aria-hidden="true">↗</span></button>
+    </nav>
+    <button class="mobile-curator" type="button" data-open-curator aria-label="打开策展台">
+      <span>策展台</span><span aria-hidden="true">↗</span>
+    </button>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-backdrop" aria-hidden="true">10</div>
+      <div class="hero-rule">
+        <p>SELECTED WORKS / 01—10</p>
+        <p>CHARACTER · CREATURE · PROP</p>
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span>3D CHARACTER ARTIST / 2026</p>
+          <h1 class="hero-title" id="hero-title">
+            <span class="hero-title-cn">形体<br>档案</span>
+            <span class="hero-title-en" aria-hidden="true">FORM<br>ARCHIVE</span>
+          </h1>
+          <p class="hero-lede">十个展示位，存放角色、生物与硬表面道具。<br>从雕刻、拓扑、UV 到 PBR 贴图与最终渲染，<br class="desktop-only">每一件都从第一块体块开始。</p>
+          <div class="hero-actions">
+            <a class="btn btn-solid" href="#index">
+              <span>浏览作品</span>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/></svg>
+            </a>
+            <button class="btn btn-ghost" type="button" data-open-curator>
+              <span>上传模型</span>
+              <span class="btn-sup">10 SLOTS</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-visual-wrap">
+          <div class="hero-visual" id="hero-visual" aria-hidden="true">
+            <div class="hero-orb"></div>
+          </div>
+          <div class="hero-visual-meta">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span>LIVE WEBGL</span>
+            <span class="meta-slash">/</span>
+            <span>ROTATING FORM</span>
+          </div>
+          <div class="hero-caption hero-caption-a">REAL-TIME<br>PREVIEW</div>
+          <div class="hero-caption hero-caption-b">10<br>SLOTS</div>
+        </div>
+      </div>
+
+      <div class="hero-foot">
+        <p class="hero-foot-left">角色 / 生物 / 硬表面</p>
+        <p class="hero-foot-mid"><strong>07</strong> 件作品 <span>·</span> <strong>03</strong> 个开放展示位</p>
+        <a class="scroll-cue" href="#index"><span>SCROLL</span><span aria-hidden="true">↓</span></a>
+      </div>
+    </section>
+
+    <div class="tool-strip" aria-label="使用软件">
+      <div class="tool-strip-track">
+        <span>BLENDER</span><i></i>
+        <span>ZBRUSH</span><i></i>
+        <span>SUBSTANCE 3D PAINTER</span><i></i>
+        <span>MARMOSET</span><i></i>
+        <span>PHOTOSHOP</span><i></i>
+        <span>GLB / REAL-TIME</span><i></i>
+        <span>BLENDER</span><i></i>
+        <span>ZBRUSH</span><i></i>
+        <span>SUBSTANCE 3D PAINTER</span><i></i>
+        <span>MARMOSET</span><i></i>
+        <span>PHOTOSHOP</span><i></i>
+        <span>GLB / REAL-TIME</span><i></i>
+      </div>
+    </div>
+
+    <section class="index-section" id="index" aria-labelledby="index-title">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">01 / SELECTED WORKS</p>
+          <h2 class="section-title" id="index-title">作品索引 <span>INDEX</span></h2>
+        </div>
+        <div class="index-count" aria-live="polite">
+          <strong id="work-count">07</strong><span>/ 10</span>
+          <small>WORKS ONLINE</small>
+        </div>
+      </div>
+
+      <div class="index-toolbar">
+        <div class="filters" role="group" aria-label="按类型筛选">
+          <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">全部 <span>10</span></button>
+          <button class="filter" type="button" data-filter="character" aria-pressed="false">角色 <span>04</span></button>
+          <button class="filter" type="button" data-filter="creature" aria-pressed="false">生物 <span>01</span></button>
+          <button class="filter" type="button" data-filter="prop" aria-pressed="false">道具 <span>01</span></button>
+          <button class="filter" type="button" data-filter="study" aria-pressed="false">研究 <span>01</span></button>
+          <button class="filter" type="button" data-filter="open" aria-pressed="false">待上传 <span>03</span></button>
+        </div>
+        <p class="toolbar-note">点击作品打开 3D 预览 <span aria-hidden="true">↗</span></p>
+      </div>
+
+      <div class="works-grid" id="works-grid" aria-live="polite"></div>
+      <noscript><p class="noscript">请启用 JavaScript 以查看作品。</p></noscript>
+
+      <div class="index-foot">
+        <p><span class="status-dot"></span> 07 件作品已入档，03 个展示位等待新模型。</p>
+        <button class="text-link" type="button" data-open-curator>管理作品 <span aria-hidden="true">↗</span></button>
+      </div>
+    </section>
+
+    <section class="about-section" id="about" aria-labelledby="about-title">
+      <div class="about-side">
+        <p class="section-kicker">02 / ABOUT</p>
+        <p class="about-side-en">FORM FOLLOWS<br>FUNCTION</p>
+      </div>
+      <div class="about-main">
+        <h2 class="about-title" id="about-title">先把形体做对，<br>再让材质说话。</h2>
+        <p class="about-lead" id="about-statement">独立 3D 角色美术。关注角色造型、材质与实时呈现，从雕刻、拓扑、UV 到 PBR 贴图与最终渲染，习惯把一件作品从第一块体块做到可以放进引擎里。</p>
+        <div class="about-stats">
+          <div><strong>07</strong><span>完整项目</span></div>
+          <div><strong>10</strong><span>展示位</span></div>
+          <div><strong>05</strong><span>核心工具</span></div>
+          <div><strong>∞</strong><span>继续练习</span></div>
+        </div>
+        <div class="about-bottom">
+          <div class="about-tools">
+            <p class="micro-label">TOOLS / 工具</p>
+            <ul id="tools-list">
+              <li>Blender</li><li>ZBrush</li><li>Substance 3D Painter</li><li>Marmoset</li><li>Photoshop</li>
+            </ul>
+          </div>
+          <div class="about-contact">
+            <p class="micro-label">CONTACT / 联系</p>
+            <a id="contact-email" class="contact-link" href="mailto:hello@yourname.com">hello@yourname.com</a>
+            <a id="contact-artstation" class="contact-secondary" href="#" target="_blank" rel="noreferrer" hidden>ARTSTATION <span aria-hidden="true">↗</span></a>
+            <p class="contact-note">OPEN FOR WORK · 2026</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <p class="footer-brand">FORM<em>/</em>10</p>
+      <p class="footer-line">十个展示位，一个持续生长的三维档案。</p>
+      <div class="footer-links">
+        <a href="guide.html">GitHub 发布指南 <span aria-hidden="true">↗</span></a>
+        <a href="#top">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="footer-year">2026</span> <span id="footer-artist">YOUR NAME</span>. ALL RIGHTS RESERVED.</p>
+      <p>THREE.JS · GITHUB PAGES · GLB</p>
+    </div>
+  </footer>
+
+  <!-- ---------------------------------- 3D viewer ---------------------------------- -->
+  <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="viewer-title" aria-hidden="true">
+    <div class="viewer-stage" id="viewer-stage">
+      <img class="viewer-poster" id="viewer-poster" alt="">
+      <div class="viewer-canvas-wrap" id="viewer-canvas-wrap"></div>
+      <div class="viewer-loader" id="viewer-loader">
+        <div class="loader-orb"><span></span><span></span><span></span></div>
+        <p class="loader-label">LOADING MODEL</p>
+        <p class="loader-percent" id="loader-percent">0%</p>
+      </div>
+      <div class="viewer-empty" id="viewer-empty" hidden>
+        <div class="empty-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><path d="M24 5 41 14.5v19L24 43 7 33.5v-19L24 5Z"/><path d="m7 14.5 17 9.8 17-9.8M24 24.3V43"/></svg>
+        </div>
+        <p class="micro-label" id="viewer-empty-kicker">NO 3D FILE YET</p>
+        <h3 id="viewer-empty-title">这件作品还没有绑定 3D 模型</h3>
+        <p id="viewer-empty-desc">上传 GLB / GLTF 后，这里会变成可实时旋转、平移和缩放的 3D 预览。</p>
+        <div class="viewer-empty-actions">
+          <button class="btn btn-solid btn-small" type="button" id="viewer-upload-btn">上传模型</button>
+          <button class="btn btn-ghost btn-small" type="button" id="viewer-close-empty">返回作品</button>
+        </div>
+      </div>
+
+      <div class="viewer-stage-top">
+        <p class="viewer-stage-label"><span class="status-dot"></span> REAL-TIME VIEWER</p>
+        <p class="viewer-stage-hint" id="viewer-mobile-hint">单指旋转 · 双指缩放</p>
+      </div>
+
+      <div class="viewer-controls-help" id="viewer-controls-help" aria-hidden="true">
+        <div><span class="mouse-icon"><i></i></span><span><b>左键拖动</b>平移</span></div>
+        <div><span class="mouse-icon mouse-icon--mid"><i></i></span><span><b>中键拖动</b>旋转</span></div>
+        <div><span class="wheel-icon"></span><span><b>滚轮</b>缩放</span></div>
+      </div>
+    </div>
+
+    <aside class="viewer-panel">
+      <div class="viewer-panel-top">
+        <p>ARCHIVE <span>/</span> <span id="viewer-no">01</span></p>
+        <button class="viewer-close" id="viewer-close" type="button" aria-label="关闭 3D 预览">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+
+      <div class="viewer-info">
+        <p class="viewer-role" id="viewer-role">3D 角色 / 风格化</p>
+        <h2 class="viewer-title" id="viewer-title">粉发魔法少女</h2>
+        <p class="viewer-subtitle" id="viewer-subtitle">Pink Mage</p>
+        <p class="viewer-desc" id="viewer-desc"></p>
+        <ul class="viewer-specs" id="viewer-specs"></ul>
+        <div class="viewer-stats" id="viewer-stats" hidden>
+          <div><span>FORMAT</span><strong id="stat-format">—</strong></div>
+          <div><span>TRIS</span><strong id="stat-tris">—</strong></div>
+          <div><span>MESHES</span><strong id="stat-mesh">—</strong></div>
+          <div><span>SIZE</span><strong id="stat-size">—</strong></div>
+        </div>
+      </div>
+
+      <div class="viewer-panel-bottom">
+        <div class="viewer-actions">
+          <button class="icon-btn" type="button" id="viewer-reset" title="重置视角 (R)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10a8 8 0 1 1 2.3 6.7M4 4v6h6"/></svg>
+            <span>重置视角</span>
+          </button>
+          <button class="icon-btn" type="button" id="viewer-auto" aria-pressed="false" title="自动旋转">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v6h-6"/></svg>
+            <span>自动旋转</span>
+          </button>
+          <button class="icon-btn" type="button" id="viewer-capture" title="截取当前视角作为封面" hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l1.5-2h7L17 8h3v10H4V8Z"/><circle cx="12" cy="13" r="3.2"/></svg>
+            <span>截取封面</span>
+          </button>
+          <button class="icon-btn" type="button" id="viewer-replace" title="更换模型">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></svg>
+            <span>更换模型</span>
+          </button>
+        </div>
+        <p class="viewer-footnote" id="viewer-footnote">GLB · 实时渲染</p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ---------------------------------- curator ---------------------------------- -->
+  <div class="modal" id="curator-modal" role="dialog" aria-modal="true" aria-labelledby="curator-title" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-dialog curator-dialog">
+      <div class="modal-head">
+        <div>
+          <p class="modal-kicker">CURATOR / 10 SLOTS</p>
+          <h2 class="modal-title" id="curator-title">策展台</h2>
+        </div>
+        <button class="modal-close" type="button" data-close-modal aria-label="关闭策展台">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+
+      <p class="modal-intro">在这里把 3D 模型绑定到十个展示位。文件只保存在当前浏览器；要让访客看到，请导出发布包并上传到 GitHub。</p>
+
+      <div class="curator-list" id="curator-list"></div>
+
+      <div class="curator-foot">
+        <div class="storage-meter">
+          <div class="storage-meter-head"><span>本地占用</span><strong id="storage-size">—</strong></div>
+          <div class="storage-bar"><i id="storage-bar-fill"></i></div>
+          <p>建议单个 GLB ≤ 20MB，十个模型合计 ≤ 200MB。</p>
+        </div>
+        <div class="curator-foot-actions">
+          <button class="btn btn-ghost btn-small" type="button" id="export-pack" disabled>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v9M6 8l4 4 4-4M4 14v3h12v-3"/></svg>
+            导出发布包
+          </button>
+          <button class="text-link text-link--danger" type="button" id="clear-local" disabled>清空本地模型</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------------------------------- upload ---------------------------------- -->
+  <div class="modal" id="upload-modal" role="dialog" aria-modal="true" aria-labelledby="upload-title" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <form class="modal-dialog upload-dialog" id="upload-form">
+      <div class="modal-head">
+        <div>
+          <p class="modal-kicker">BIND MODEL / SLOT <span id="upload-slot-label">08</span></p>
+          <h2 class="modal-title" id="upload-title">上传 3D 模型</h2>
+        </div>
+        <button class="modal-close" type="button" data-close-modal aria-label="关闭上传">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+
+      <div class="dropzone" id="dropzone">
+        <input id="file-input" type="file" multiple accept=".glb,.gltf,.obj,.stl,.bin,.png,.jpg,.jpeg,.webp,.mtl" hidden>
+        <input id="folder-input" type="file" multiple webkitdirectory directory hidden>
+        <div class="dropzone-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><path d="M24 5 41 14.5v19L24 43 7 33.5v-19L24 5Z"/><path d="m7 14.5 17 9.8 17-9.8M24 24.3V43"/></svg>
+        </div>
+        <p class="dropzone-title">把模型拖进来</p>
+        <p class="dropzone-note">推荐单文件 <b>.GLB</b>；也支持 .GLTF / .OBJ / .STL<br>带贴图时请把整个文件夹一起拖入</p>
+        <div class="dropzone-actions">
+          <button class="btn btn-ghost btn-small" type="button" id="pick-files">选择文件</button>
+          <button class="btn btn-ghost btn-small" type="button" id="pick-folder">选择文件夹</button>
+        </div>
+      </div>
+
+      <div class="file-summary" id="file-summary" hidden>
+        <div class="file-summary-head">
+          <p><strong id="file-count">0</strong> 个文件 · <span id="file-total">0 MB</span></p>
+          <button class="text-link" type="button" id="clear-files">重新选择</button>
+        </div>
+        <ul id="file-list"></ul>
+      </div>
+
+      <div class="form-grid">
+        <label class="field">
+          <span>作品名</span>
+          <input id="field-title" name="title" type="text" maxlength="40" placeholder="例如：银发剑士" required>
+        </label>
+        <label class="field">
+          <span>类型</span>
+          <select id="field-category" name="category">
+            <option value="character">角色 / CHARACTER</option>
+            <option value="creature">生物 / CREATURE</option>
+            <option value="prop">道具 / PROP</option>
+            <option value="study">研究 / STUDY</option>
+          </select>
+        </label>
+        <label class="field field-wide">
+          <span>方向 / 角色描述</span>
+          <input id="field-role" name="role" type="text" maxlength="50" placeholder="例如：3D 角色 / 风格化">
+        </label>
+        <label class="field field-wide" id="entry-field" hidden>
+          <span>入口文件</span>
+          <select id="field-entry" name="entry"></select>
+        </label>
+        <label class="field field-wide">
+          <span>作品说明（可选）</span>
+          <textarea id="field-description" name="description" rows="3" maxlength="280" placeholder="一句话说明这件作品的重点。"></textarea>
+        </label>
+        <label class="field field-wide field-cover">
+          <span>封面图（可选）</span>
+          <input id="field-cover" name="cover" type="file" accept="image/*">
+          <small>不上传也没关系，加载模型后可以在查看器里“截取封面”。</small>
+        </label>
+      </div>
+
+      <p class="form-error" id="form-error" role="alert" hidden></p>
+
+      <div class="modal-actions">
+        <p class="upload-limit-note">最多 10 个展示位 · 单文件建议 ≤ 20MB</p>
+        <div>
+          <button class="btn btn-ghost btn-small" type="button" data-close-modal>取消</button>
+          <button class="btn btn-solid btn-small" type="submit" id="upload-submit">
+            <span>保存到展示位</span>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/></svg>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
+
+  <template id="work-card-template">
+    <article class="work-card">
+      <button class="work-card-button" type="button">
+        <span class="work-thumb">
+          <img class="work-cover" alt="" loading="lazy" decoding="async">
+          <span class="work-thumb-fallback" aria-hidden="true"></span>
+          <span class="work-badge"></span>
+          <span class="work-hover">
+            <span class="work-hover-label">OPEN ARCHIVE</span>
+            <span class="work-hover-icon" aria-hidden="true">↗</span>
+          </span>
+        </span>
+        <span class="work-meta">
+          <span class="work-no"></span>
+          <span class="work-name"></span>
+          <span class="work-category"></span>
+        </span>
+      </button>
+    </article>
+  </template>
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#08090a">
+  <title>GitHub Pages 发布指南 — 形体档案 FORM / 10</title>
+  <meta name="description" content="从零把 3D 作品集发布到 GitHub Pages：创建仓库、上传网站、导出 GLB、绑定模型和更新线上版本。">
+  <meta property="og:title" content="GitHub Pages 发布指南 — FORM / 10">
+  <meta property="og:description" content="从零把 3D 作品集发布到 GitHub Pages：创建仓库、上传网站、导出 GLB、绑定模型和更新线上版本。">
+  <meta property="og:image" content="assets/og-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/viewer.css">
+  <link rel="stylesheet" href="css/guide.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="guide-page">
+  <a class="skip-link" href="#guide-content">跳到正文</a>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header" id="site-header">
+    <a class="brand" href="index.html" aria-label="FORM / 10 首页">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">FORM<em>/</em>10</span>
+    </a>
+    <p class="header-note"><span class="status-dot"></span>GITHUB PAGES / FIELD NOTES <span class="header-year">2026</span></p>
+    <nav class="site-nav" aria-label="主导航">
+      <a href="index.html">作品索引</a>
+      <a href="#guide-content">发布指南</a>
+      <a href="index.html#about">关于</a>
+      <a class="nav-curator" href="index.html">返回作品 <span aria-hidden="true">↗</span></a>
+    </nav>
+    <a class="mobile-curator" href="index.html">返回作品 <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main class="guide-main" id="guide-content">
+    <section class="guide-hero" aria-labelledby="guide-title">
+      <div class="guide-hero-top">
+        <p class="section-kicker">00 / DEPLOYMENT NOTES</p>
+        <p class="guide-version">STATIC SITE · NO BACKEND · 10 SLOTS</p>
+      </div>
+      <h1 class="guide-title" id="guide-title">把作品<br><span>放到网上。</span></h1>
+      <div class="guide-hero-bottom">
+        <p class="guide-lede">这是一份从零开始的 GitHub Pages 使用说明。你不需要买服务器，也不需要写后端：把网站文件放进仓库，GitHub 就会把它变成一个可以分享的网址。</p>
+        <div class="guide-hero-actions">
+          <a class="btn btn-solid" href="#step-1"><span>从第 1 步开始</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/></svg></a>
+          <a class="btn btn-ghost" href="index.html">先看成品</a>
+        </div>
+      </div>
+      <div class="guide-hero-meta">
+        <div><span>HOST</span><strong>GitHub Pages</strong></div>
+        <div><span>FORMAT</span><strong>GLB / GLTF</strong></div>
+        <div><span>SLOTS</span><strong>10</strong></div>
+        <div><span>COST</span><strong>FREE / PUBLIC</strong></div>
+      </div>
+    </section>
+
+    <div class="guide-layout">
+      <aside class="guide-toc" aria-label="目录">
+        <p class="micro-label">ON THIS PAGE</p>
+        <ol>
+          <li><a href="#step-1"><span>01</span>先理解它是什么</a></li>
+          <li><a href="#step-2"><span>02</span>准备网站文件夹</a></li>
+          <li><a href="#step-3"><span>03</span>创建仓库并发布</a></li>
+          <li><a href="#step-4"><span>04</span>上传并绑定模型</a></li>
+          <li><a href="#step-5"><span>05</span>Blender 导出设置</a></li>
+          <li><a href="#step-6"><span>06</span>操作方式与限制</a></li>
+          <li><a href="#step-7"><span>07</span>之后怎么更新</a></li>
+          <li><a href="#step-8"><span>08</span>常见问题</a></li>
+          <li><a href="#step-9"><span>09</span>发布前检查</a></li>
+        </ol>
+        <div class="toc-note">
+          <span class="status-dot"></span>
+          <p>所有步骤都可以只用浏览器完成。想更省事，可以安装 GitHub Desktop。</p>
+        </div>
+      </aside>
+
+      <article class="guide-article">
+        <section class="guide-section" id="step-1">
+          <div class="guide-section-head">
+            <p class="guide-no">01</p>
+            <div>
+              <p class="section-kicker">MENTAL MODEL</p>
+              <h2>先理解：GitHub Pages 是什么</h2>
+            </div>
+          </div>
+          <p>GitHub 是一个存放代码和文件的网站。一个 <strong>repository（仓库）</strong>就是一个项目文件夹；<strong>GitHub Pages</strong> 是它附带的静态网站托管服务。你把这个文件夹里的 <code>index.html</code>、CSS、JS、图片和模型放进去，GitHub 就会用它们生成一个公开网址。</p>
+          <div class="concept-grid">
+            <div>
+              <span class="concept-no">A</span>
+              <h3>仓库 = 文件夹</h3>
+              <p>本地文件夹里的目录结构，上传到仓库后要保持一致。线上路径区分大小写。</p>
+            </div>
+            <div>
+              <span class="concept-no">B</span>
+              <h3>提交 = 保存版本</h3>
+              <p>每次修改后提交一次（commit），Pages 会自动重新构建网站，通常 1–3 分钟。</p>
+            </div>
+            <div>
+              <span class="concept-no">C</span>
+              <h3>没有后端</h3>
+              <p>网站不能把访客上传的文件写回 GitHub。策展台上传只存在你的浏览器里，发布要导出更新包。</p>
+            </div>
+          </div>
+          <div class="callout">
+            <p><strong>先明确“上传”的两层含义。</strong>在网站的策展台里上传模型，只保存在当前浏览器，方便你预览和调整；要让所有访客看到，需要把模型文件放进 GitHub 仓库。这是静态网站的正常工作方式，不是 bug。</p>
+          </div>
+          <p>免费账号使用公开仓库即可。GitHub Pages 的常见限制：单个文件小于 <strong>100MB</strong>，仓库建议控制在 <strong>1GB</strong> 以内，每月流量约 <strong>100GB</strong>，构建约 10 分钟超时。对 10 个压缩后的 GLB 模型来说，空间通常够用。</p>
+          <p class="source-line">官方文档：<a href="https://docs.github.com/en/pages" target="_blank" rel="noreferrer">GitHub Pages</a> · <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits" target="_blank" rel="noreferrer">Pages limits</a> · <a href="https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github" target="_blank" rel="noreferrer">Large files</a></p>
+        </section>
+
+        <section class="guide-section" id="step-2">
+          <div class="guide-section-head">
+            <p class="guide-no">02</p>
+            <div>
+              <p class="section-kicker">FILES</p>
+              <h2>准备网站文件夹</h2>
+            </div>
+          </div>
+          <p>拿到 <code>作品集网站</code> 文件夹后，先确认 <code>index.html</code> 在<strong>最外层</strong>，而不是在某个子文件夹里。仓库的根目录必须能直接看到它。</p>
+          <pre><code>作品集网站/
+├── index.html          ← 首页，必须在根目录
+├── guide.html          ← 你现在看的这份指南
+├── 本地预览.bat         ← 本地打开网站
+├── data/
+│   └── works.json      ← 10 个展示位的数据
+├── models/             ← 发布后的 3D 模型放这里
+├── assets/
+│   └── covers/         ← 作品封面
+├── css/
+├── js/
+└── vendor/             ← Three.js、JSZip 等依赖</code></pre>
+          <div class="callout callout--soft">
+            <p><strong>不要修改 <code>vendor/</code>。</strong>它存放 Three.js 和 JSZip，是网站的渲染与打包依赖。你只需要改 <code>data/works.json</code>、<code>models/</code>、<code>assets/covers/</code>，以及首页里的姓名和联系方式。</p>
+          </div>
+          <h3>建议先改三处个人信息</h3>
+          <ol class="plain-list">
+            <li>打开 <code>data/works.json</code>，把 <code>meta.artist</code> 改成你的名字，<code>meta.email</code> 改成邮箱。</li>
+            <li>需要 ArtStation 的话，把 <code>meta.artstation</code> 填上主页地址；不填就留空。</li>
+            <li>如果作品标题、方向或说明要改，也在同一个文件里改；每个对象对应一个展示位。</li>
+          </ol>
+        </section>
+
+        <section class="guide-section" id="step-3">
+          <div class="guide-section-head">
+            <p class="guide-no">03</p>
+            <div>
+              <p class="section-kicker">FIRST DEPLOY</p>
+              <h2>创建仓库并发布</h2>
+            </div>
+          </div>
+          <ol class="step-list">
+            <li>
+              <div>
+                <h3>注册 / 登录 GitHub</h3>
+                <p>打开 <a href="https://github.com" target="_blank" rel="noreferrer">github.com</a>。记住你的用户名，它会出现在最终网址里。</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>新建一个公开仓库</h3>
+                <p>右上角 <strong>+ → New repository</strong>。Repository name 填 <code>form10</code>（或你喜欢的名字），选择 <strong>Public</strong>。不要勾选 “Add a README file”，保持空仓库，下一步一次上传完整网站。</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>把网站文件上传到仓库根目录</h3>
+                <p>进入仓库 → <strong>Add file → Upload files</strong>。把 <code>作品集网站</code> 文件夹<strong>里面的内容</strong>全选拖进去（不是把外层文件夹本身拖进去）。确认页面上能直接看到 <code>index.html</code>，然后点 <strong>Commit changes</strong>。</p>
+                <p class="mini-note">如果拖folder后页面显示 <code>作品集网站/index.html</code>，说明多套了一层，删掉重传或把文件移动到根目录。</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>开启 Pages</h3>
+                <p>仓库顶部 <strong>Settings → Pages</strong>。Source 选择 <strong>Deploy from a branch</strong>，Branch 选 <code>main</code>，目录选 <code>/ (root)</code>，点 <strong>Save</strong>。</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>等待并打开网址</h3>
+                <p>回到 Pages 页面，等上方出现绿色提示。网址通常是：</p>
+                <pre><code>https://你的用户名.github.io/form10/</code></pre>
+                <p>如果仓库名正好是 <code>你的用户名.github.io</code>，网址就是 <code>https://你的用户名.github.io/</code>。第一次部署通常 1–3 分钟，偶尔更久。</p>
+              </div>
+            </li>
+          </ol>
+          <div class="callout">
+            <p><strong>404 先查三件事：</strong>仓库是不是 Public；Pages 的 Branch 是不是 main / root；<code>index.html</code> 是不是在根目录。改完设置后等一分钟再刷新。</p>
+          </div>
+        </section>
+
+        <section class="guide-section" id="step-4">
+          <div class="guide-section-head">
+            <p class="guide-no">04</p>
+            <div>
+              <p class="section-kicker">MODEL WORKFLOW</p>
+              <h2>上传模型，再发布到线上</h2>
+            </div>
+          </div>
+          <p>推荐流程是“先本地预览，再导出更新包”。这样你能确认模型、灯光和封面都对了，再把文件推到 GitHub。</p>
+          <div class="workflow">
+            <div class="workflow-step">
+              <span>01</span>
+              <h3>本地预览</h3>
+              <p>双击 <code>本地预览.bat</code>，浏览器打开 <code>http://127.0.0.1:8080/</code>。不要直接双击 <code>index.html</code>，ES Modules 会被浏览器的本地文件安全策略拦住。</p>
+            </div>
+            <div class="workflow-step">
+              <span>02</span>
+              <h3>策展台上传</h3>
+              <p>点右上角“策展台”，选择第 8–10 个空缺展示位（或替换已有作品），把 GLB 拖进去。填写作品名、类型和一句话说明，保存。</p>
+            </div>
+            <div class="workflow-step">
+              <span>03</span>
+              <h3>检查 3D 预览</h3>
+              <p>用鼠标中键旋转、左键平移、滚轮缩放。手机上一根手指旋转、两根手指捏合缩放。角度满意后点“截取封面”。</p>
+            </div>
+            <div class="workflow-step">
+              <span>04</span>
+              <h3>导出发布包</h3>
+              <p>回到策展台，点“导出发布包”。ZIP 里有 <code>models/</code>、<code>covers/</code> 和更新后的 <code>data/works.json</code>。</p>
+            </div>
+          </div>
+          <h3>把发布包放到 GitHub</h3>
+          <ol class="plain-list">
+            <li>解压 <code>form10-site-update-日期.zip</code>。</li>
+            <li>在仓库首页点 <strong>Add file → Upload files</strong>，把解压后的 <code>models</code>、<code>covers</code>、<code>data</code> 文件夹拖进去。</li>
+            <li>同名文件选择覆盖，Commit changes。</li>
+            <li>等 Pages 重新部署，用无痕窗口打开线上网址检查。</li>
+          </ol>
+          <div class="callout callout--soft">
+            <p><strong>只上传 <code>data/works.json</code> 是不够的。</strong>模型文件和封面图也要在仓库里，否则线上访客只会看到空白或加载失败。三个目录要一起提交。</p>
+          </div>
+          <h3>也可以手动改数据</h3>
+          <p>如果只想发布一个模型，可以手动在 <code>models/slot-08/</code> 放文件，然后在 <code>data/works.json</code> 对应展示位里把 <code>model</code> 写成相对路径：</p>
+          <pre><code>{
+  "slot": 8,
+  "title": "银发剑士",
+  "category": "character",
+  "role": "3D 角色 / 二次元手绘",
+  "cover": "assets/covers/08.webp",
+  "model": "models/slot-08/character.glb",
+  "description": "一句话说明这件作品。",
+  "specs": ["角色 + 武器", "2K 贴图"]
+}</code></pre>
+          <p>路径<strong>相对网站根目录</strong>，不要以 <code>/</code> 或盘符开头；线上区分大小写，<code>Model.glb</code> 和 <code>model.glb</code> 是两个文件。</p>
+        </section>
+
+        <section class="guide-section" id="step-5">
+          <div class="guide-section-head">
+            <p class="guide-no">05</p>
+            <div>
+              <p class="section-kicker">BLENDER → GLB</p>
+              <h2>Blender 导出设置</h2>
+            </div>
+          </div>
+          <p>网站推荐单文件 <strong>GLB</strong>：模型、材质和贴图都打包在一个文件里，上传和排错都最简单。Blender 的路径是 <strong>File → Export → glTF 2.0 (.glb/.gltf)</strong>。</p>
+          <div class="settings-table">
+            <div><span>格式</span><strong>glTF Binary (.glb)</strong></div>
+            <div><span>包含</span><strong>Selected Objects（只导出选中的角色/道具）</strong></div>
+            <div><span>变换</span><strong>+Y Up，Apply Modifiers</strong></div>
+            <div><span>数据</span><strong>UV、Normals；需要时再勾 Tangents</strong></div>
+            <div><span>材质</span><strong>Export Materials / Images: Automatic</strong></div>
+            <div><span>相机 / 灯光</span><strong>不要导出</strong></div>
+            <div><span>压缩</span><strong>可选 Draco；网站已支持</strong></div>
+            <div><span>建议大小</span><strong>单个 ≤ 20MB，硬上限 100MB</strong></div>
+          </div>
+          <h3>导出前的模型检查</h3>
+          <ul class="check-list">
+            <li>在物体模式执行 <strong>Object → Apply → All Transforms</strong>，避免缩放和旋转留在模型上。</li>
+            <li>把原点放到脚底中心（角色）或物体中心（道具），这样旋转和落地更自然。</li>
+            <li>确认场景里没有多余的相机、灯光、参考板和隐藏物体被一起导出。</li>
+            <li>贴图尽量统一为 2K；4K 贴图会显著增加 GLB 体积和手机加载时间。</li>
+            <li>超过 10 万三角面的角色建议先做游戏级低模；网页不是离线渲染器。</li>
+            <li>导出后在 <a href="https://gltf-viewer.donmccurdy.com/" target="_blank" rel="noreferrer">glTF Viewer</a> 里再打开一次，确认没有丢失材质。</li>
+          </ul>
+          <p>如果模型带多个贴图文件，网站也支持把 <code>.gltf + .bin + textures</code> 整个文件夹拖进策展台；但发布时这些文件必须保持相对路径一起上传。新手优先用 GLB。</p>
+          <p class="source-line">Blender 官方手册：<a href="https://docs.blender.org/manual/en/latest/addons/import_export/scene_gltf2.html" target="_blank" rel="noreferrer">glTF 2.0</a></p>
+        </section>
+
+        <section class="guide-section" id="step-6">
+          <div class="guide-section-head">
+            <p class="guide-no">06</p>
+            <div>
+              <p class="section-kicker">CONTROLS &amp; LIMITS</p>
+              <h2>操作方式与容量限制</h2>
+            </div>
+          </div>
+          <div class="controls-grid">
+            <div class="control-block">
+              <p class="micro-label">DESKTOP / 电脑</p>
+              <dl>
+                <div><dt>左键拖动</dt><dd>平移视口</dd></div>
+                <div><dt>中键拖动</dt><dd>旋转模型</dd></div>
+                <div><dt>滚轮</dt><dd>放大 / 缩小</dd></div>
+                <div><dt>R 键</dt><dd>重置视角</dd></div>
+              </dl>
+            </div>
+            <div class="control-block">
+              <p class="micro-label">MOBILE / 手机</p>
+              <dl>
+                <div><dt>单指滑动</dt><dd>旋转模型</dd></div>
+                <div><dt>双指捏合</dt><dd>放大 / 缩小</dd></div>
+                <div><dt>双指平移</dt><dd>不启用，避免误操作</dd></div>
+                <div><dt>关闭</dt><dd>点右上角 × 或面板按钮</dd></div>
+              </dl>
+            </div>
+          </div>
+          <p>这套映射写在 <code>js/controls.js</code> 里，不依赖 Three.js 的默认 OrbitControls。电脑端左键专门留给平移，手机端两指只做缩放，避免浏览时误触。</p>
+          <div class="limit-grid">
+            <div><strong>10</strong><span>展示位</span><p>1–7 已有封面，8–10 为开放位；可以替换任意一个。</p></div>
+            <div><strong>≤100MB</strong><span>单文件</span><p>GitHub 会拒绝更大的单个文件；建议 GLB ≤20MB。</p></div>
+            <div><strong>1GB</strong><span>仓库建议</span><p>10 个模型 + 网站资源应远低于这个量级。</p></div>
+            <div><strong>100GB</strong><span>月流量</span><p>个人作品集通常用不到；大模型仍应压缩。</p></div>
+          </div>
+        </section>
+
+        <section class="guide-section" id="step-7">
+          <div class="guide-section-head">
+            <p class="guide-no">07</p>
+            <div>
+              <p class="section-kicker">ITERATE</p>
+              <h2>之后怎么更新</h2>
+            </div>
+          </div>
+          <p>发布不是一次性的。之后每次改作品、换封面或加新模型，都是同一个循环：<strong>改文件 → 提交 → 等 Pages 重新部署</strong>。</p>
+          <div class="update-compare">
+            <div>
+              <h3>只用浏览器</h3>
+              <p>在仓库里点文件 → 右上角铅笔编辑 → Commit。新增模型用 <strong>Add file → Upload files</strong>。适合偶尔改一两处。</p>
+            </div>
+            <div>
+              <h3>用 GitHub Desktop</h3>
+              <p>把仓库 Clone 到电脑，在本地文件夹里替换模型和 <code>works.json</code>，写 Commit message，点 Push。适合经常更新。</p>
+            </div>
+          </div>
+          <h3>更新时的三个习惯</h3>
+          <ul class="check-list">
+            <li>提交信息写清楚，例如 <code>Add slot 08 character model</code>，以后能找回版本。</li>
+            <li>不要提交 <code>.blend</code> 源文件、PSD、未压缩贴图；仓库只放网页要用的 GLB 和 WebP/JPG。</li>
+            <li>每次发布后用无痕窗口打开线上网址，确认访客看到的是新版本，而不是浏览器缓存。</li>
+          </ul>
+          <div class="callout">
+            <p><strong>不要用 Git LFS 存 GLB。</strong>GitHub Pages 不会把 LFS 指针解析成模型文件。直接把压缩后的真实文件提交到普通 Git 仓库。</p>
+          </div>
+        </section>
+
+        <section class="guide-section" id="step-8">
+          <div class="guide-section-head">
+            <p class="guide-no">08</p>
+            <div>
+              <p class="section-kicker">TROUBLESHOOT</p>
+              <h2>常见问题</h2>
+            </div>
+          </div>
+          <div class="faq">
+            <details>
+              <summary>线上是 404 / 一片空白</summary>
+              <p>先确认仓库是 Public、Pages 的 Branch 是 main / root、<code>index.html</code> 在根目录。按 F12 看 Console 和 Network：如果 <code>js/app.js</code> 或 <code>data/works.json</code> 404，通常是路径大小写或多套了一层文件夹。</p>
+            </details>
+            <details>
+              <summary>模型一直停在 LOADING，或显示 LOAD ERROR</summary>
+              <p>优先换成单文件 GLB；确认 <code>data/works.json</code> 里的 <code>model</code> 路径和仓库中的文件完全一致；确认文件小于 100MB。带外部贴图的 GLTF 必须把 <code>.bin</code> 和 textures 一起上传，并保持相对目录。</p>
+            </details>
+            <details>
+              <summary>模型能打开，但材质是黑的 / 没有贴图</summary>
+              <p>多数是 GLTF 的外部贴图路径断了，或导出时没有打包图片。回到 Blender 重新导出 GLB，Images 选择 Automatic，确认贴图节点使用的是图片文件而不是程序纹理。</p>
+            </details>
+            <details>
+              <summary>手机上单指旋转不灵 / 页面跟着滚动</summary>
+              <p>预览器的画布已经设置 <code>touch-action: none</code>。如果仍然冲突，确认你点的是模型画布而不是下方信息面板；页面本身在查看器打开时是锁定滚动的。</p>
+            </details>
+            <details>
+              <summary>策展台上传成功，但别人看不到</summary>
+              <p>这是正常的。策展台的文件存在浏览器的 IndexedDB 里，只对你当前这台设备可见。点“导出发布包”，把 <code>models/</code>、<code>covers/</code>、<code>data/works.json</code> 提交到 GitHub 后，访客才能看到。</p>
+            </details>
+            <details>
+              <summary>更新后线上还是旧版本</summary>
+              <p>打开仓库的 <strong>Actions</strong> 看 Pages 部署是否完成；用无痕窗口或强制刷新（Ctrl/Cmd + Shift + R）。GitHub CDN 可能有几分钟缓存。</p>
+            </details>
+            <details>
+              <summary>可以换成自己的域名吗？</summary>
+              <p>可以。Settings → Pages → Custom domain 填入域名，再按 GitHub 提示配置 DNS。个人作品集用 <code>username.github.io</code> 已经足够，先不必折腾域名。</p>
+            </details>
+          </div>
+        </section>
+
+        <section class="guide-section" id="step-9">
+          <div class="guide-section-head">
+            <p class="guide-no">09</p>
+            <div>
+              <p class="section-kicker">BEFORE YOU SHIP</p>
+              <h2>发布前检查</h2>
+            </div>
+          </div>
+          <ul class="final-checklist">
+            <li><span>01</span>姓名、邮箱、ArtStation 已替换，没有 <code>YOUR NAME</code> 残留。</li>
+            <li><span>02</span>7 个原有项目的封面和说明没有在替换模型时被覆盖。</li>
+            <li><span>03</span>每个 3D 模型都能在电脑和手机上打开，左键/中键/滚轮与单指/双指都正常。</li>
+            <li><span>04</span>每个展示位都有封面；新模型已用“截取封面”生成 4:5 缩略图。</li>
+            <li><span>05</span>线上 <code>models/</code>、<code>covers/</code>、<code>data/works.json</code> 三处都已提交。</li>
+            <li><span>06</span>用无痕窗口在手机尺寸下看过一遍，文字没有被裁切。</li>
+            <li><span>07</span>GLB 总体积可控，首页 3 秒内能出现内容。</li>
+            <li><span>08</span>没有把学校作业、未完成作品或他人模型标成个人原创。</li>
+          </ul>
+          <div class="guide-end">
+            <p class="section-kicker">READY TO SHIP</p>
+            <h2>现在，把你的第一件作品放上去。</h2>
+            <div>
+              <a class="btn btn-solid" href="index.html"><span>回到作品集</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/></svg></a>
+              <a class="btn btn-ghost" href="https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site" target="_blank" rel="noreferrer">GitHub 官方教程 ↗</a>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <p class="footer-brand">FORM<em>/</em>10</p>
+      <p class="footer-line">GitHub Pages 发布指南 · 静态网站 · 十个展示位。</p>
+      <div class="footer-links">
+        <a href="index.html">作品索引 <span aria-hidden="true">↗</span></a>
+        <a href="#guide-content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="footer-year">2026</span> <span id="footer-artist">FORM / 10</span>. ALL RIGHTS RESERVED.</p>
+      <p>THREE.JS · GITHUB PAGES · GLB</p>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('site-header');
+    addEventListener('scroll', () => header.classList.toggle('is-scrolled', scrollY > 20), { passive: true });
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+    for (const link of document.querySelectorAll('.guide-toc a')) {
+      link.addEventListener('click', () => link.blur());
+    }
+  </script>
+</body>
+</html>
