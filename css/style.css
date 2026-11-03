@@ -613,6 +613,51 @@ section[id] {
   display: none;
 }
 
+.contact-wechat {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 10px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.04em;
+  color: var(--muted-2);
+  text-align: left;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.contact-wechat:hover {
+  border-color: var(--accent);
+  color: var(--text);
+  background: rgba(200, 255, 61, 0.04);
+}
+
+.contact-wechat-label {
+  letter-spacing: 0.1em;
+}
+
+.contact-wechat b {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: var(--text);
+}
+
+.contact-wechat-copy {
+  padding: 2px 5px;
+  border: 1px solid var(--line);
+  font-size: 7px;
+  color: var(--accent);
+}
+
+.contact-wechat[hidden] {
+  display: none;
+}
+
 .contact-note {
   margin-top: 13px;
   font-family: var(--font-mono);

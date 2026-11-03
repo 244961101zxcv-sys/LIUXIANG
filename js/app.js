@@ -397,6 +397,14 @@ function renderMeta() {
     if (url) artstation.href = url;
   }
 
+  const wechat = $('contact-wechat');
+  const wechatId = $('contact-wechat-id');
+  if (wechat && wechatId) {
+    const id = String(meta.wechat || '').trim();
+    wechat.hidden = !id;
+    wechatId.textContent = id;
+  }
+
   for (const artist of qsa('#footer-artist')) {
     artist.textContent = meta.artist || 'YOUR NAME';
   }
@@ -1067,6 +1075,23 @@ function showToast(message, { error = false, duration = 3600 } = {}) {
   }, duration);
 }
 
+async function copyText(text) {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+  const area = document.createElement('textarea');
+  area.value = text;
+  area.setAttribute('readonly', '');
+  area.style.position = 'fixed';
+  area.style.opacity = '0';
+  document.body.appendChild(area);
+  area.select();
+  const ok = document.execCommand('copy');
+  area.remove();
+  if (!ok) throw new Error('复制失败');
+}
+
 function showFatal(error) {
   const grid = $('works-grid');
   if (!grid) return;
@@ -1091,6 +1116,24 @@ function bindEvents() {
   window.addEventListener('scroll', () => {
     $('site-header')?.classList.toggle('is-scrolled', window.scrollY > 20);
   }, { passive: true });
+
+  $('contact-wechat')?.addEventListener('click', async (event) => {
+    const button = event.currentTarget;
+    const id = $('contact-wechat-id')?.textContent?.trim();
+    if (!id) return;
+    const badge = qs('.contact-wechat-copy', button);
+    try {
+      await copyText(id);
+      if (badge) {
+        const original = badge.textContent;
+        badge.textContent = '已复制';
+        window.setTimeout(() => { badge.textContent = original; }, 1600);
+      }
+      showToast(`微信号已复制：${id}`);
+    } catch {
+      showToast(`微信号：${id}`, { duration: 5000 });
+    }
+  });
 
   for (const button of qsa('[data-open-curator]')) {
     button.addEventListener('click', openCurator);

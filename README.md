@@ -1,4 +1,4 @@
-﻿# FORM / 10 — 3D 作品集网站
+# FORM / 10 — 3D 作品集网站
 
 一个可以直接部署到 GitHub Pages 的静态 3D 作品集：10 个展示位，作品以封面 / 实时 GLB 两种方式呈现，内置上传、预览、封面截取和发布包导出。
 
@@ -153,12 +153,13 @@ assets/covers/08.webp
 ```json
 "artist": "你的名字",
 "email": "你的邮箱",
+"wechat": "你的微信号",
 "artstation": "https://www.artstation.com/你的主页",
 "statement": "你的自我介绍",
 "tools": ["Blender", "ZBrush", "Substance 3D Painter", "Marmoset", "Photoshop"]
 ```
 
-首页的英文大标题、作品数量等会自动更新；`YOUR NAME` 会显示在页脚。
+首页的姓名、邮箱、微信号、作品数量和页脚会自动更新。
 
 ---
 

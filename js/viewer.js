@@ -45,7 +45,7 @@ export class ModelViewer {
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    this.renderer.toneMappingExposure = 1.02;
+    this.renderer.toneMappingExposure = 0.96;
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     this.renderer.domElement.className = 'viewer-canvas';
@@ -76,15 +76,15 @@ export class ModelViewer {
     pmrem.compileEquirectangularShader();
     this.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
     this.scene.environment = this.environment;
-    this.scene.environmentIntensity = 0.52;
+    this.scene.environmentIntensity = 0.28;
     pmrem.dispose();
   }
 
   _setupLights() {
-    this.hemi = new THREE.HemisphereLight(0xffffff, 0x14141a, 1.15);
+    this.hemi = new THREE.HemisphereLight(0xffffff, 0x14141a, 0.6);
     this.scene.add(this.hemi);
 
-    this.key = new THREE.DirectionalLight(0xfff1dd, 2.8);
+    this.key = new THREE.DirectionalLight(0xfff1dd, 1.5);
     this.key.position.set(4, 7, 5);
     this.key.castShadow = true;
     this.key.shadow.mapSize.set(2048, 2048);
@@ -94,11 +94,11 @@ export class ModelViewer {
     this.scene.add(this.key);
     this.scene.add(this.key.target);
 
-    this.rim = new THREE.DirectionalLight(0xe4eeff, 1.55);
+    this.rim = new THREE.DirectionalLight(0xe4eeff, 0.8);
     this.rim.position.set(-6, 3.5, -4);
     this.scene.add(this.rim);
 
-    this.fill = new THREE.DirectionalLight(0x8aa7ff, 0.9);
+    this.fill = new THREE.DirectionalLight(0x8aa7ff, 0.45);
     this.fill.position.set(5, 2, -3);
     this.scene.add(this.fill);
   }
@@ -292,6 +292,16 @@ export class ModelViewer {
         loader.setMaterials(materials);
       }
       root = await loader.loadAsync(mainUrl);
+      if (!mtlUrl) {
+        const clay = new THREE.MeshStandardMaterial({
+          color: 0xb7afa2,
+          roughness: 0.64,
+          metalness: 0.04,
+        });
+        root.traverse((object) => {
+          if (object.isMesh) object.material = clay;
+        });
+      }
     } else if (ext === 'stl') {
       const geometry = await new STLLoader(manager).loadAsync(mainUrl);
       geometry.computeVertexNormals();
